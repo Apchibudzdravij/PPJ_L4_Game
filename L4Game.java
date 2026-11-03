@@ -31,32 +31,169 @@ public class L4Game {
 	final String intro = "Welcome to the L4Game!\nIt is a short interactive story,\nwhere your choices might change\nthe plot.\nChoose your genre";
 	final String rageQuit = "Do ya really think u betta than me!?";
 	
-	String selectOneOfThree[] = {"Sci-Fi", "Romantic", "Dark Fantasy"};
+	String selectOneOfTwo[] = {"Sci-Fi Comedy", "Contemporary Romance"};
+	String sciFiBeginning = "A long time ago in a galaxy far far away";
 	
 	do {//I want the Player to play at least once
 	    IO.println(intro);
-	    IO.println("1. " + selectOneOfThree[0] +
-		       "\n2. " + selectOneOfThree[1] +
-		       "\n3. " + selectOneOfThree[2]);
+	    IO.println("1. " + selectOneOfTwo[0] +
+		       "\n2. " + selectOneOfTwo[1]);
 
 	    switch (IO.readln("Your choice: ")) {
-	    case "1" -> choices+=1;
-	    case "2" -> choices+=2;
-	    case "3" -> choices+=3;
+	    case "1" -> {
+		IO.println("Sci-Fi Beginning"); //TODO Sci-Fi Beginning of the story
+		switch (IO.readln("Your choice: ")) {
+		case "1" -> {
+		    IO.println("Sci-Fi Development 1"); //TODO Sci-Fi Development 1
+		    switch (IO.readln("Your choice: ")) {
+		    case "1" -> {
+			IO.println("Sci-Fi Conclusion 1"); //TODO Sci-Fi Conclusion 1
+			switch (IO.readln("Your choice: ")) {
+			case "1" -> {
+			    finish = false;
+			}
+			default -> {
+			    IO.println("Thank you!"); // TODO Thank you message
+			    finish = true;
+			}
+			}
+		    }
+		    case "2" -> {
+			IO.println("Sci-Fi Conclusion 2"); //TODO Sci-Fi Conclusion 2
+			switch (IO.readln("Your choice: ")) {
+			case "1" -> {
+			    finish = false;
+			}
+			default -> {
+			    IO.println("Thank you!"); // TODO Thank you message
+			    finish = true;
+			}
+			}
+		    }
+		    default -> {
+			IO.println(rageQuit);
+			finish = true;
+		    }
+		    }
+		}
+		case "2" -> {
+		    IO.println("Sci-Fi Development 2"); //TODO Sci-Fi Development 2
+		    switch (IO.readln("Your choice: ")) {
+		    case "1" -> {
+			IO.println("Sci-Fi Conclusion 3"); //TODO Sci-Fi Conclusion 3
+			switch (IO.readln("Your choice: ")) {
+			case "1" -> {
+			    finish = false;
+			}
+			default -> {
+			    IO.println("Thank you!"); // TODO Thank you message
+			    finish = true;
+			}
+			}
+		    }
+		    case "2" -> {
+			IO.println("Sci-Fi Conclusion 4"); //TODO Sci-Fi Conclusion 4
+			switch (IO.readln("Your choice: ")) {
+			case "1" -> {
+			    finish = false;
+			}
+			default -> {
+			    IO.println("Thank you!"); // TODO Thank you message
+			    finish = true;
+			}
+			}
+		    }
+		    default -> {
+			IO.println(rageQuit);
+			finish = true;
+		    }
+		    }
+		}
+		default -> {
+		    IO.println(rageQuit);
+		    finish = true;
+		}
+		}
+	    }
+	    case "2" -> {
+		IO.println("Romance Beginning"); //TODO Romance Beginning of the story
+		switch (IO.readln("Your choice: ")) {
+		case "1" -> {
+		    IO.println("Sci-Fi Development 1"); //TODO Romance Development 1
+		    switch (IO.readln("Your choice: ")) {
+		    case "1" -> {
+			IO.println("Sci-Fi Conclusion 1"); //TODO Romance Conclusion 1
+			switch (IO.readln("Your choice: ")) {
+			case "1" -> {
+			    finish = false;
+			}
+			default -> {
+			    IO.println("Thank you!"); // TODO Thank you message
+			    finish = true;
+			}
+			}
+		    }
+		    case "2" -> {
+			IO.println("Sci-Fi Conclusion 2"); //TODO Romance Conclusion 2
+			switch (IO.readln("Your choice: ")) {
+			case "1" -> {
+			    finish = false;
+			}
+			default -> {
+			    IO.println("Thank you!"); // TODO Thank you message
+			    finish = true;
+			}
+			}
+		    }
+		    default -> {
+			IO.println(rageQuit);
+			finish = true;
+		    }
+		    }
+		}
+		case "2" -> {
+		    IO.println("Sci-Fi Development 2"); //TODO Romance Development 2
+		    switch (IO.readln("Your choice: ")) {
+		    case "1" -> {
+			IO.println("Sci-Fi Conclusion 3"); //TODO Romance Conclusion 3
+			switch (IO.readln("Your choice: ")) {
+			case "1" -> {
+			    finish = false;
+			}
+			default -> {
+			    IO.println("Thank you!"); // TODO Thank you message
+			    finish = true;
+			}
+			}
+		    }
+		    case "2" -> {
+			IO.println("Sci-Fi Conclusion 4"); //TODO Romance Conclusion 4
+			switch (IO.readln("Your choice: ")) {
+			case "1" -> {
+			    finish = false;
+			}
+			default -> {
+			    IO.println("Thank you!"); // TODO Thank you message
+			    finish = true;
+			}
+			}
+		    }
+		    default -> {
+			IO.println(rageQuit);
+			finish = true;
+		    }
+		    }
+		}
+		default -> {
+		    IO.println(rageQuit);
+		    finish = true;
+		}
+		}
+	    }
 	    default -> {
 		IO.println(rageQuit);
 		finish = true;
 	    }
-	    }
-	    //area for the game
-	    if (!finish) {
-		if (choices == 1) {
-		    //sci-fy
-		} else if (choices == 2) {
-		    //romantic
-		} else {
-		    // dark fantasy
-		}
 	    }
 	} while (!finish);
     }
