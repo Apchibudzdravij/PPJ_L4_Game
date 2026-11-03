@@ -27,11 +27,7 @@ public class L4Game {
 
 	final String os = System.getProperty("os.name");
 
-	if (os.contains("Windows")) {
-	    // TODO save terminal state for windows
-	} else {
-	    IO.print("\033[?1049h");
-	}
+	IO.print("\033[?1049h");//proceed to alternate screen
 	
 	int choices = 0;//the idea is to store all choices in one variable
 	boolean finish = false;
@@ -43,11 +39,7 @@ public class L4Game {
 	String sciFiBeginning = "A long time ago in a galaxy far far away";
 	
 	do {//I want the Player to play at least once
-	    if (os.contains("Windows")) {
-		// TODO clear terminal in windows
-	    } else {
-		IO.print("\033[H\033[2J");
-	    }
+	    IO.print("\033[H\033[2J");//clear the CLI
 	    
 	    IO.println(intro);
 	    IO.println("1. " + selectOneOfTwo[0] +
@@ -55,29 +47,17 @@ public class L4Game {
 
 	    switch (IO.readln("Your choice: ")) {
 	    case "1" -> {
-		if (os.contains("Windows")) {
-		    // TODO clear terminal in windows
-		} else {
-		    IO.print("\033[H\033[2J");
-		}
-		
+		IO.print("\033[H\033[2J");//clear the CLI
+				
 		IO.println("Sci-Fi Beginning"); //TODO Sci-Fi Beginning of the story
 		switch (IO.readln("Your choice: ")) {
 		case "1" -> {
-		    if (os.contains("Windows")) {
-			// TODO clear terminal in windows
-		    } else {
-			IO.print("\033[H\033[2J");
-		    }
+		    IO.print("\033[H\033[2J");//clear the CLI
 		
 		    IO.println("Sci-Fi Development 1"); //TODO Sci-Fi Development 1
 		    switch (IO.readln("Your choice: ")) {
 		    case "1" -> {
-			if (os.contains("Windows")) {
-			    // TODO clear terminal in windows
-			} else {
-			    IO.print("\033[H\033[2J");
-			}
+			IO.print("\033[H\033[2J");//clear the CLI
 		
 			IO.println("Sci-Fi Conclusion 1"); //TODO Sci-Fi Conclusion 1
 			switch (IO.readln("Your choice: ")) {
@@ -92,11 +72,7 @@ public class L4Game {
 			}
 		    }
 		    case "2" -> {
-			if (os.contains("Windows")) {
-			    // TODO clear terminal in windows
-			} else {
-			    IO.print("\033[H\033[2J");
-			}
+			IO.print("\033[H\033[2J");//clear the CLI
 		
 			IO.println("Sci-Fi Conclusion 2"); //TODO Sci-Fi Conclusion 2
 			switch (IO.readln("Your choice: ")) {
@@ -116,20 +92,12 @@ public class L4Game {
 		    }
 		}
 		case "2" -> {
-		    if (os.contains("Windows")) {
-			// TODO clear terminal in windows
-		    } else {
-			IO.print("\033[H\033[2J");
-		    }
+		    IO.print("\033[H\033[2J");//clear the CLI
 		
 		    IO.println("Sci-Fi Development 2"); //TODO Sci-Fi Development 2
 		    switch (IO.readln("Your choice: ")) {
 		    case "1" -> {
-			if (os.contains("Windows")) {
-			    // TODO clear terminal in windows
-			} else {
-			    IO.print("\033[H\033[2J");
-			}
+			IO.print("\033[H\033[2J");//clear the CLI
 		
 			IO.println("Sci-Fi Conclusion 3"); //TODO Sci-Fi Conclusion 3
 			switch (IO.readln("Your choice: ")) {
@@ -143,11 +111,7 @@ public class L4Game {
 			}
 		    }
 		    case "2" -> {
-			if (os.contains("Windows")) {
-			    // TODO clear terminal in windows
-			} else {
-			    IO.print("\033[H\033[2J");
-			}
+			IO.print("\033[H\033[2J");//clear the CLI
 		
 			IO.println("Sci-Fi Conclusion 4"); //TODO Sci-Fi Conclusion 4
 			switch (IO.readln("Your choice: ")) {
@@ -173,29 +137,17 @@ public class L4Game {
 		}
 	    }
 	    case "2" -> {
-		if (os.contains("Windows")) {
-		    // TODO clear terminal in windows
-		} else {
-		    IO.print("\033[H\033[2J");
-		}
+		IO.print("\033[H\033[2J");//clear the CLI
 		
 		IO.println("Romance Beginning"); //TODO Romance Beginning of the story
 		switch (IO.readln("Your choice: ")) {
 		case "1" -> {
-		    if (os.contains("Windows")) {
-			// TODO clear terminal in windows
-		    } else {
-			IO.print("\033[H\033[2J");
-		    }
+		    IO.print("\033[H\033[2J");//clear the CLI
 		
 		    IO.println("Sci-Fi Development 1"); //TODO Romance Development 1
 		    switch (IO.readln("Your choice: ")) {
 		    case "1" -> {
-			if (os.contains("Windows")) {
-			    // TODO clear terminal in windows
-			} else {
-			    IO.print("\033[H\033[2J");
-			}
+			IO.print("\033[H\033[2J");//clear the CLI
 		
 			IO.println("Sci-Fi Conclusion 1"); //TODO Romance Conclusion 1
 			switch (IO.readln("Your choice: ")) {
@@ -209,11 +161,7 @@ public class L4Game {
 			}
 		    }
 		    case "2" -> {
-			if (os.contains("Windows")) {
-			    // TODO clear terminal in windows
-			} else {
-			    IO.print("\033[H\033[2J");
-			}
+			IO.print("\033[H\033[2J");//clear the CLI
 		
 			IO.println("Sci-Fi Conclusion 2"); //TODO Romance Conclusion 2
 			switch (IO.readln("Your choice: ")) {
@@ -233,20 +181,12 @@ public class L4Game {
 		    }
 		}
 		case "2" -> {
-		    if (os.contains("Windows")) {
-			// TODO clear terminal in windows
-		    } else {
-			IO.print("\033[H\033[2J");
-		    }
+		    IO.print("\033[H\033[2J");//clear the CLI
 		
 		    IO.println("Sci-Fi Development 2"); //TODO Romance Development 2
 		    switch (IO.readln("Your choice: ")) {
 		    case "1" -> {
-			if (os.contains("Windows")) {
-			    // TODO clear terminal in windows
-			} else {
-			    IO.print("\033[H\033[2J");
-			}
+			IO.print("\033[H\033[2J");//clear the CLI
 		
 			IO.println("Sci-Fi Conclusion 3"); //TODO Romance Conclusion 3
 			switch (IO.readln("Your choice: ")) {
@@ -260,11 +200,7 @@ public class L4Game {
 			}
 		    }
 		    case "2" -> {
-			if (os.contains("Windows")) {
-			    // TODO clear terminal in windows
-			} else {
-			    IO.print("\033[H\033[2J");
-			}
+			IO.print("\033[H\033[2J");//clear the CLI
 		
 			IO.println("Sci-Fi Conclusion 4"); //TODO Romance Conclusion 4
 			switch (IO.readln("Your choice: ")) {
@@ -298,10 +234,6 @@ public class L4Game {
 
 	IO.readln("Press Enter to quit... ");
 	
-	if (os.contains("Windows")) {
-	    // TODO load terminal state for windows
-	} else {
-	    IO.print("\033[?1049l");
-	}
+	IO.print("\033[?1049l");//return back from alternate screen
     }
 }
