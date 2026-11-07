@@ -16,6 +16,8 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
+import java.lang.classfile.TypeAnnotation.EmptyTarget;
+
 public class L4Game {
     public static void main(String[] Args) {
 
@@ -29,52 +31,57 @@ public class L4Game {
 	
 	boolean finish = false;
 
-	final String intro = "\tWelcome to the L4Game! It is a\n\tshort interactive story, where\n\tyour choices might changethe plot.\n\tAll endings are independent.";
+	final String headUIRow = "╔═══════════════════════════════════════════════╗\n",
+	    endUIRow = "╚═══════════════════════════════════════════════╝\n",
+	    emptyUIRow = "║                                               ║\n",
+	    dividedUIRow = "╠═══════════════════════════════════════════════╣";
+
+	final String intro = "║\tWelcome to the L4Game! It is a\t\t║\n║\tshort interactive story, where\t\t║\n║\tyour choices might change the plot.\t║\n║\tAll endings are independent.\t\t║\n";
 	final String rageQuit = "Do ya really think u betta than me!?";
 	
-	String sciFiBeginning = "\tThe far future. Humanity has\n\tconquered millions of planets\n\tacross hundreds of galaxies.\n\tAll of this became possible\n\tthanks to technology concepts\n\tthat were first developed in\n\tthe XXI century on Earth:";
-	String sciFiBeginningChoices = "1. A Flawless Weapon of Mass Destruction\t2. The Contents of a Very Sturdy Briefcase";
+	String sciFiBeginning = "║\tThe far future. Humanity has\t\t║\n║\tconquered millions of planets\t\t║\n║\tacross hundreds of galaxies.\t\t║\n║\tAll of this became possible\t\t║\n║\tthanks to technology concepts\t\t║\n║\tthat were first developed in\t\t║\n║\tthe XXI century on Earth:\t\t║\n";
+	String sciFiBeginningChoices = "║ 1. A Flawless Weapon of Mass Destruction\t║\n║ 2. The Contents of a Very Sturdy Briefcase\t║\n";
 
-	String sciFiDevelopment1 = "\tThis weapon was extremely\n\teffective both in space and on\n\tplanetary surfaces. A single use\n\twas enough to make enemy armies\n\tuseless. And this weapon was...";
-	String sciFiDevelopment1Choices = "1. Terrifying\t2. Peaceful";
+	String sciFiDevelopment1 = "║\tThis weapon was extremely\t\t║\n║\teffective both in space and on\t\t║\n║\tplanetary surfaces. A single use\t║\n║\twas enough to make enemy armies\t\t║\n║\tuseless. And this weapon was...\t\t║\n";
+	String sciFiDevelopment1Choices = "║ 1. Terrifying\t\t\t\t\t║\n║ 2. Peaceful\t\t\t\t\t║\n";
 
-	String sciFiConclusion1 = "\tThroughout the entire area, the\n\tquestion was visible, audible,\n\tand palpable:\n\t\tEnglish or Spanish?";
-	String sciFiConclusion2 = "\tThis weapon was so hard\n\t\tto resist\n\t\t🥺👉👈";
+	String sciFiConclusion1 = "║\tThroughout the entire area, the\t\t║\n║\tquestion was visible, audible,\t\t║\n║\tand palpable:\t\t\t\t║\n" + emptyUIRow + "║\t\tEnglish or Spanish?\t\t║\n";
+	String sciFiConclusion2 = "║\tThis weapon was so hard\t\t\t║\n║\t\t\t\tto resist\t║\n" + emptyUIRow + "║\t\t🥺👉👈\t\t\t\t║\n";
 
-	String sciFiDevelopment2 = "\tFirst appearing with an unnamed\n\tman in a business suit, similar\n\tsuitcases gradually began to\n\tappear more and more frequently.\n\tNowadays, no space cruiser is\n\tcomplete without at least one.\n\tHowever, only a very limited number\n\tof people know what’s inside...";
-	String sciFiDevelopment2Choices = "1. Ask the person with the suitcase what's inside it\t2. Forcefully open the suitcase.";
+	String sciFiDevelopment2 = "║\tFirst appearing with an unnamed\t\t║\n║\tman in a business suit, similar\t\t║\n║\tsuitcases gradually began to\t\t║\n║\tappear more and more frequently.\t║\n║\tNowadays, no space cruiser is\t\t║\n║\tcomplete without at least one.\t\t║\n║\tHowever, only a very limited number\t║\n║\tof people know what’s inside...\t\t║\n";
+	String sciFiDevelopment2Choices = "║ 1. Ask the person with the suitcase.\t\t║\n║ 2. Forcefully open the suitcase.\t\t║\n";
 
-	String sciFiConclusion3 = "\tHe paused for a long time,\n\tthen replied with an extraordinarily\n\temotionless expression:\n\t\t\"There are bipkis.\"";
-	String sciFiConclusion4 = "     )\n    (\n   .-.\n  (   )\n .-`-`-.\n(_______)";
+	String sciFiConclusion3 = "║\tHe paused for a long time,\t\t║\n║\tthen replied with an extraordinarily\t║\n║\temotionless expression:\t\t\t║\n" + emptyUIRow + "║\t\t\"There are bipkis.\"\t\t║\n";
+	String sciFiConclusion4 = "║\tYou saw:\t\t\t\t║\n║\t\t\t      )\t\t\t║\n║\t\t\t     (\t\t\t║\n║\t\t\t   .-/\\.\t\t║\n║\t\t\t  (     )\t\t║\n║\t\t\t .-`---`-.\t\t║\n║\t\t\t(_________)\t\t║\n";
 
-	String restartQuestion = "Enter 1 to restart the game, any other input will end the game.";
+	String restartQuestion = "║  Enter 1 to restart the game,\t\t\t║\n║  any other input will end the game.\t\t║\n" + endUIRow;
 	
 	String thankYou = "Thank you for playing!";
 	
 	do {//I want the Player to play at least once
 	    IO.print("\033[H\033[2J");//clear the CLI
 	    
-	    IO.println(intro);
-	    IO.readln("Press Enter to continue.");
+	    IO.println(headUIRow + emptyUIRow + emptyUIRow + intro + emptyUIRow + emptyUIRow + dividedUIRow);
+	    IO.readln("║  Press Enter to continue.\t\t\t║\n" + emptyUIRow + endUIRow);
 	    
 	    IO.print("\033[H\033[2J");//clear the CLI
 				
-	    IO.println(sciFiBeginning);
-	    IO.println(sciFiBeginningChoices);
+	    IO.println(headUIRow + sciFiBeginning + emptyUIRow + dividedUIRow);
+	    IO.print(sciFiBeginningChoices + endUIRow);
 		
 	    switch (IO.readln("Your choice: ")) {
 	    case "1" -> {
 		IO.print("\033[H\033[2J");//clear the CLI
 		
-		IO.println(sciFiDevelopment1);
-		IO.println(sciFiDevelopment1Choices);
+		IO.println(headUIRow + emptyUIRow + sciFiDevelopment1 + emptyUIRow + emptyUIRow + dividedUIRow);
+		IO.print(sciFiDevelopment1Choices + endUIRow);
 		switch (IO.readln("Your choice: ")) {
 		case "1" -> {
 		    IO.print("\033[H\033[2J");//clear the CLI
 		
-		    IO.println(sciFiConclusion1);
+		    IO.println(headUIRow + emptyUIRow + sciFiConclusion1 + emptyUIRow + emptyUIRow + dividedUIRow);
 
-		    IO.println(restartQuestion);
+		    IO.print(restartQuestion);
 		    switch (IO.readln("Your choice: ")) {
 		    case "1" -> {
 		
@@ -89,9 +96,9 @@ public class L4Game {
 		case "2" -> {
 		    IO.print("\033[H\033[2J");//clear the CLI
 		
-		    IO.println(sciFiConclusion2);
+		    IO.println(headUIRow + emptyUIRow + emptyUIRow + sciFiConclusion2 + emptyUIRow + emptyUIRow + dividedUIRow);
 
-		    IO.println(restartQuestion);
+		    IO.print(restartQuestion);
 		    switch (IO.readln("Your choice: ")) {
 		    case "1" -> {
 			finish = false;
@@ -111,15 +118,15 @@ public class L4Game {
 	    case "2" -> {
 		IO.print("\033[H\033[2J");//clear the CLI
 		
-		IO.println(sciFiDevelopment2);
-		IO.println(sciFiDevelopment2Choices);
+		IO.println(headUIRow + sciFiDevelopment2 + dividedUIRow);
+		IO.print(sciFiDevelopment2Choices + endUIRow);
 		switch (IO.readln("Your choice: ")) {
 		case "1" -> {
 		    IO.print("\033[H\033[2J");//clear the CLI
 		
-		    IO.println(sciFiConclusion3);
+		    IO.println(headUIRow + emptyUIRow + sciFiConclusion3 + emptyUIRow + emptyUIRow + dividedUIRow);
 
-		    IO.println(restartQuestion);
+		    IO.print(restartQuestion);
 		    switch (IO.readln("Your choice: ")) {
 		    case "1" -> {
 			finish = false;
@@ -133,9 +140,9 @@ public class L4Game {
 		case "2" -> {
 		    IO.print("\033[H\033[2J");//clear the CLI
 		
-		    IO.println(sciFiConclusion4);
+		    IO.println(headUIRow +  sciFiConclusion4 + emptyUIRow + dividedUIRow);
 
-		    IO.println(restartQuestion);
+		    IO.print(restartQuestion);
 		    switch (IO.readln("Your choice: ")) {
 		    case "1" -> {
 			finish = false;
