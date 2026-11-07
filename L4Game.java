@@ -25,7 +25,7 @@ public class L4Game {
 
 	//TODO add localization to another languages
 
-	//TODO endings counter
+	byte endingsCounter = (byte)0;
 
 	IO.print("\033[?1049h");//proceed to alternate screen
 	
@@ -77,12 +77,13 @@ public class L4Game {
 		IO.print(sciFiDevelopment1Choices + endUIRow);
 		switch (IO.readln("Your choice: ")) {
 		case "1" -> {
+		    endingsCounter = (byte)(endingsCounter | 0b1);
 		    IO.print("\033[H\033[2J");//clear the CLI
 		
 		    IO.println(headUIRow + emptyUIRow + sciFiConclusion1 + emptyUIRow + emptyUIRow + dividedUIRow);
 
 		    IO.print(restartQuestion);
-		    switch (IO.readln("Your choice: ")) {
+		    switch (IO.readln((endingsCounter==0b1111?"You found all endings!":"There are unreached endings...") + " Your choice: ")) {
 		    case "1" -> {
 		
 			finish = false;
@@ -94,12 +95,13 @@ public class L4Game {
 		    }
 		}
 		case "2" -> {
+		    endingsCounter = (byte)(endingsCounter | 0b10);
 		    IO.print("\033[H\033[2J");//clear the CLI
 		
 		    IO.println(headUIRow + emptyUIRow + emptyUIRow + sciFiConclusion2 + emptyUIRow + emptyUIRow + dividedUIRow);
 
 		    IO.print(restartQuestion);
-		    switch (IO.readln("Your choice: ")) {
+		    switch (IO.readln((endingsCounter==0b1111?"You found all endings!":"There are unreached endings...") + " Your choice: ")) {
 		    case "1" -> {
 			finish = false;
 		    }
@@ -122,12 +124,13 @@ public class L4Game {
 		IO.print(sciFiDevelopment2Choices + endUIRow);
 		switch (IO.readln("Your choice: ")) {
 		case "1" -> {
+		    endingsCounter = (byte)(endingsCounter | 0b100);
 		    IO.print("\033[H\033[2J");//clear the CLI
 		
 		    IO.println(headUIRow + emptyUIRow + sciFiConclusion3 + emptyUIRow + emptyUIRow + dividedUIRow);
 
 		    IO.print(restartQuestion);
-		    switch (IO.readln("Your choice: ")) {
+		    switch (IO.readln((endingsCounter==0b1111?"You found all endings!":"There are unreached endings...") + " Your choice: ")) {
 		    case "1" -> {
 			finish = false;
 		    }
@@ -138,12 +141,13 @@ public class L4Game {
 		    }
 		}
 		case "2" -> {
+		    endingsCounter = (byte)(endingsCounter | 0b1000);
 		    IO.print("\033[H\033[2J");//clear the CLI
 		
 		    IO.println(headUIRow +  sciFiConclusion4 + emptyUIRow + dividedUIRow);
 
 		    IO.print(restartQuestion);
-		    switch (IO.readln("Your choice: ")) {
+		    switch (IO.readln((endingsCounter==0b1111?"You found all endings!":"There are unreached endings...") + " Your choice: ")) {
 		    case "1" -> {
 			finish = false;
 		    }
